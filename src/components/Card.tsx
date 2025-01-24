@@ -1,4 +1,3 @@
-"use client"
 import Image from "next/image"
 import { FC } from "react"
 
@@ -10,7 +9,7 @@ interface CardProps {
 
 const Card: FC<CardProps> = ({ id, title, description }) => {
     return (
-        <div className="card-element w-[358] h-[212] bg-[#f0f0f0] rounded-lg p-4 flex flex-col justify-between my-4">
+        <div className="card-element w-[358px] lg:w-[412px] h-[212px] lg:h-[256px] bg-[#f0f0f0] rounded-lg p-4 flex flex-col justify-between my-4">
             <div className="flex flex-row items-center justify-between gap-6">
                 <Image
                     src={`/${id}.svg`}
