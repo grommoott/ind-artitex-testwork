@@ -2,20 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@font-face {
+    font-family: "PP Neue Montreal Book";
+    font-style: normal;
+    font-weight: 400;
+    src:
+        local("PP Neue Montreal Book"),
+        url("/ppneuemontreal-book.woff") format("woff");
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+.pp-neue-montreal {
+    font-family: "PP Neue Montreal Book";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    color: #151515;
 }
