@@ -1,5 +1,3 @@
-"use client"
-
 import { cardsData } from "./cardsData"
 import Header from "@/components/Header"
 import CardsWidget from "@/components/CardsWidget"

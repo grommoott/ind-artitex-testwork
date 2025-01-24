@@ -1,4 +1,5 @@
-import { FC, useCallback, useEffect, useState } from "react"
+"use client"
+import { FC, useCallback, useEffect, useMemo, useState } from "react"
 import Slider from "./Slider"
 import Cards from "./Cards"
 
@@ -15,6 +16,16 @@ const CardsWidget: FC<CardsWidgetProps> = ({ cardsData }) => {
         setCardWidth(document.querySelector(".card-element")?.scrollWidth || 0)
     }, [setCardWidth])
 
+    const [pagesCount, setPagesCount] = useState(0)
+
+    useEffect(() => {
+        setPagesCount(
+            cardsData.length -
+                Math.floor(window.innerWidth / (cardWidth + gapSize)) +
+                1,
+        )
+    }, [cardWidth, gapSize])
+
     useEffect(() => {
         window.addEventListener("resize", updateCardWidth)
 
@@ -26,11 +37,7 @@ const CardsWidget: FC<CardsWidgetProps> = ({ cardsData }) => {
     return (
         <>
             <Slider
-                count={
-                    cardsData.length -
-                    Math.floor(window.innerWidth / (cardWidth + gapSize)) +
-                    1
-                }
+                count={pagesCount}
                 onChange={setOffset}
                 selected={offset}
             />
@@ -38,11 +45,7 @@ const CardsWidget: FC<CardsWidgetProps> = ({ cardsData }) => {
             <Cards
                 cardsData={cardsData}
                 offset={offset}
-                pagesCount={
-                    cardsData.length -
-                    Math.floor(window.innerWidth / (cardWidth + gapSize)) +
-                    1
-                }
+                pagesCount={pagesCount}
                 cardWidth={cardWidth}
                 gapSize={gapSize}
             />

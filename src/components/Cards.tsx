@@ -1,6 +1,4 @@
-"use client"
-
-import { FC, useMemo, useReducer, useRef } from "react"
+import { FC } from "react"
 import Card from "./Card"
 
 interface CardsProps {
